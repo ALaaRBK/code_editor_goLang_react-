@@ -8,7 +8,6 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 
 
@@ -177,10 +176,10 @@ module.exports = {
     ];
   },
   plugins: [
-    new MonacoWebpackPlugin({
+    // new MonacoWebpackPlugin({
       // available options are documented at https://github.com/Microsoft/monaco-editor-webpack-plugin#options
-      languages: ['json' , 'python' , 'cpp' , 'go']
-    }),
+      // languages: ['json' , 'python' , 'cpp' , 'go']
+    // }),
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
