@@ -21,13 +21,8 @@ func Init(opt map[string]interface{}) error {
 	if err != nil {
 		fmt.Println("can't connect to mongo server", err)
 		return err
-	}
-
-	// err = client.Ping(ctx, readpref.Primary())
-
-	if err != nil {
-		fmt.Println("can't ping to mongo server", err)
-		return err
+	} else {
+		fmt.Println("Connected")
 	}
 
 	DB = client.Database(dbName.(string))
