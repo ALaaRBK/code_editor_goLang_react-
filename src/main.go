@@ -1,27 +1,23 @@
 package main
 
 import (
-	"db1"
 	"fmt"
-	"io/ioutil"
+	"net/http"
 	"os"
 
+	"db1"
+
+	rice "github.com/GeertJohan/go.rice"
 	"github.com/labstack/echo"
 )
 
-func indexHandler(ctx echo.Context) error {
-	dat, err := ioutil.ReadFile("front-end/build/index.html")
-	var data interface{}
-	return ctx.Render(200, string(dat), &data)
-}
-func initRouter(server echo) {
-	server.GET("/", indexHandler)
-	// apiGroup := server.Group("/api")
-
-}
 func startServer() {
 	server := echo.New()
-	initRouter(&server)
+	assetHandler := http.FileServer(rice.MustFindBox("../front-end/build").HTTPBox())
+	// apiGroup := sever.Group("/api")
+	// apiGroup.GET("/submit" )
+	server.GET("/", echo.WrapHandler(assetHandler))
+	server.GET("/static/*", echo.WrapHandler(assetHandler))
 	server.Start(":8000")
 }
 
