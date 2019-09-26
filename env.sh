@@ -1,4 +1,5 @@
-export MONGO_URL="mongodb+srv://baseet:bai123456@cluster0-f7yic.mongodb.net/test?retryWrites=true&w=majority"
+# export MONGO_URL="mongodb+srv://baseet:bai123456@cluster0-f7yic.mongodb.net/test?retryWrites=true&w=majority"
+export MONGO_URL="mongodb://localhost:27017"
 export DB_NAME="onlineEditor"
 export DB_USER=""
 export DB_PASS=""
